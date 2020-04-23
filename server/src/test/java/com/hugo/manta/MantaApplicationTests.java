@@ -9,5 +9,4 @@ class MantaApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
