@@ -1,0 +1,12 @@
+{
+  "actionResult" : 0,
+  "user" :
+  {
+    "name": "老王",
+    "password": "123456",
+    "sex": 1,
+    "age": 25
+  }
+}
+
+
