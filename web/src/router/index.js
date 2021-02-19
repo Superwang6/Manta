@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Login from '../components/login';
-import Main from '../components/main';
+import Login from '../components/Login';
+import Main from '../components/Main';
 import GoodsManager from '../components/GoodsManager'
 
 Vue.use(Router);
@@ -12,17 +12,18 @@ export default new Router({
   routes: [
     {
       path: '/login',
-      name: 'login',
+      name: 'Login.vue',
       component: Login
     },
     {
       path: '/main',
-      name: 'main',
+      name: 'Main.vue',
       component: Main,
       children :[
         {
           path: '/goodsManager',
-          component: GoodsManager
+          component: GoodsManager,
+          meta: ['商品管理','商品管理']
         }
       ]
     }

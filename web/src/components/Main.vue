@@ -9,7 +9,7 @@
         background-color="#324157"
         text-color="#FFFFFF"
         active-text-color="#20A0FF"
-      router="true">
+        router="true">
         <el-menu-item index="/main">
           <i class="el-icon-s-cooperation"></i>
           <span slot="title">进销存管理系统</span>
@@ -125,7 +125,9 @@
       </el-menu>
     </el-aside>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>
+        <head-top></head-top>
+      </el-header>
       <el-main>
         <router-view></router-view>
       </el-main>
@@ -134,8 +136,12 @@
 </template>
 
 <script>
+  import Head from './Head';
+
   export default {
-    name: "main"
+    components: {
+      'head-top': Head
+    }
   }
 </script>
 
@@ -152,5 +158,13 @@
 
   .nav {
     height: 100%;
+  }
+
+  .el-header {
+    background: #eff2f7;
+  }
+
+  .el-main {
+    margin: 10px 10px;
   }
 </style>
