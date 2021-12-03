@@ -1,10 +1,10 @@
 <template>
   <div class="top-header">
-      <Nav/>
+      <Nav />
   </div>
 </template>
 <script lang='ts' setup>
-import Nav from "@/base/frame/app/header/nav.vue"
+import Nav from "@/base/frame/app/header/vue/nav.vue"
 </script>
 <style  lang="scss" scoped>
 .top-header {

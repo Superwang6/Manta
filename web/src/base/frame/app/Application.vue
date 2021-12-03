@@ -1,28 +1,31 @@
 <template>
   <el-container class="content">
     <el-header class="header">
-      <TopHeader />
-      <FloodHeader />
+      <top-header />
     </el-header>
-    <el-main class="main">Main</el-main>
+    <el-main class="main">
+      <router-view></router-view>
+    </el-main>
   </el-container>
 </template>
 
 <script lang='ts' setup>
-import TopHeader from "@/base/frame/app/header/TopHeader.vue";
-import FloodHeader from "@/base/frame/app/header/FloodHeader.vue";
+import TopHeader from "@/base/frame/app/header/vue/TopHeader.vue";
 </script>
 <style  lang="scss" scoped>
 .content {
   height: 100%;
   width: 100%;
   .header {
-    height: 100px;
+    height: 55px;
     padding: 0;
     min-width: 1200px;
   }
   .main{
-    background: #efefef;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
   }
 }
 </style>

@@ -4,7 +4,31 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Application',
-    component: () => import("@/base/frame/app/Application.vue")
+    component: () => import("@/base/frame/app/Application.vue"),
+    children: [
+      {
+        path: '/main',
+        name: 'MainContent',
+        component: () => import("@/base/frame/app/main/main.vue"),
+        children: [
+          {
+            path: '/home',
+            name: 'Home',
+            component: () => import("@/business/workspace/Home.vue")
+          },
+          {
+            path: '/schedule',
+            name: 'Schedule',
+            component: () => import("@/business/workspace/Schedule.vue")
+          }
+        ]
+      },
+      {
+        path: '/product',
+        name: 'Product',
+        component: () => import("@/business/product/Product.vue")
+      }
+    ]
   },
   // {
   //   path: '/about',
