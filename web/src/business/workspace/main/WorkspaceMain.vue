@@ -13,7 +13,9 @@ import FloodHeader from "@/base/frame/app/header/vue/FloodHeader.vue";
 .content {
   height: 100%;
   width: 100%;
-
+  .flood-header{
+    height: 45px;
+  }
   .main {
     background: #efefef;
   }

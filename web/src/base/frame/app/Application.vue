@@ -17,7 +17,7 @@ import TopHeader from "@/base/frame/app/header/vue/TopHeader.vue";
   height: 100%;
   width: 100%;
   .header {
-    height: 55px;
+    height: 50px;
     padding: 0;
     min-width: 1200px;
   }

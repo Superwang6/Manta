@@ -7,9 +7,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/base/frame/app/Application.vue"),
     children: [
       {
-        path: '/main',
-        name: 'MainContent',
-        component: () => import("@/base/frame/app/main/main.vue"),
+        path: '/workspaceMain',
+        name: 'WorkspaceMain',
+        component: () => import("@/business/workspace/main/WorkspaceMain.vue"),
         children: [
           {
             path: '/home',

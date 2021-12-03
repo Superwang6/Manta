@@ -21,7 +21,7 @@ import { ref, reactive } from "vue";
 import Item from "@/base/frame/app/header/ts/Item";
 
 const itemList: Array<Item> = reactive([
-  { name: "我的地盘", url: "/main", styleClass: "item" },
+  { name: "我的地盘", url: "/workspaceMain", styleClass: "item" },
   { name: "产品", url: "/product", styleClass: "item" },
   { name: "迭代", url: "/workspace", styleClass: "item" },
   { name: "测试", url: "/workspace", styleClass: "item" },

@@ -41,7 +41,7 @@ const itemList: Array<Item> = reactive([
 
 <style lang='scss' scoped>
 $height: 45px;
-$line-height: 24px;
+$line-height: 30px;
 
 @mixin item {
   display: block;
@@ -53,6 +53,7 @@ $line-height: 24px;
 .workspaceNav {
   .list {
     height: $height;
+    line-height: $height;
     display: inline-block;
     list-style: none;
     li {
