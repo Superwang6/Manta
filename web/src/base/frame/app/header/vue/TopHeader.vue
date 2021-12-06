@@ -8,7 +8,7 @@ import Nav from "@/base/frame/app/header/vue/nav.vue"
 </script>
 <style  lang="scss" scoped>
 .top-header {
-  height: 55%;
+  height: 100%;
   width: 100%;
 }
 </style>

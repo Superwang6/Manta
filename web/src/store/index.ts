@@ -1,4 +1,6 @@
 import { createStore } from 'vuex'
+import navModule from '@/base/frame/app/header/ts/store'
+import workspaceModule from '@/business/workspace/store/store'
 
 export default createStore({
   state: {
@@ -8,5 +10,7 @@ export default createStore({
   actions: {
   },
   modules: {
+    nav: navModule,
+    workspace: workspaceModule,
   }
 })

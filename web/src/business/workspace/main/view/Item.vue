@@ -1,6 +1,6 @@
 <template>
     <div>
-        home
+        item
     </div>
 </template>
 <script lang='ts' setup>

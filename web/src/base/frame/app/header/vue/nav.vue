@@ -17,27 +17,67 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, reactive } from "vue";
+import { reactive, computed } from "vue";
+import { useStore } from "vuex";
 import Item from "@/base/frame/app/header/ts/Item";
 
+const store = useStore();
+
 const itemList: Array<Item> = reactive([
-  { name: "我的地盘", url: "/workspaceMain", styleClass: "item" },
-  { name: "产品", url: "/product", styleClass: "item" },
-  { name: "迭代", url: "/workspace", styleClass: "item" },
-  { name: "测试", url: "/workspace", styleClass: "item" },
-  { name: "|", url: undefined, styleClass: "diver" },
-  { name: "文档", url: "/workspace", styleClass: "item" },
-  { name: "统计", url: "/workspace", styleClass: "item" },
-  { name: "|", url: undefined, styleClass: "diver" },
-  { name: "组织", url: "/workspace", styleClass: "item" },
+  {
+    name: "我的地盘",
+    url: "/workspaceMain",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  {
+    name: "产品",
+    url: "/product",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  {
+    name: "迭代",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  {
+    name: "测试",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  { name: "|", url: undefined, styleClass: "diver", childrenList: undefined },
+  {
+    name: "文档",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  {
+    name: "统计",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  { name: "|", url: undefined, styleClass: "diver", childrenList: undefined },
+  {
+    name: "组织",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
 ]);
 
-const lastActiveIndex = ref(0);
+const lastActiveIndex = computed(() => store.state.nav.lastActiveItem);
 const changeIsActive = (index: number) => {
   if (itemList[index].styleClass === "item") {
-    itemList[lastActiveIndex.value].styleClass = "item";
+    if(lastActiveIndex.value != undefined) {
+      itemList[lastActiveIndex.value].styleClass = "item";
+    }
     itemList[index].styleClass = "active";
-    lastActiveIndex.value = index;
+    store.commit("changeIsActive", index);
   }
 };
 </script>

@@ -2,7 +2,7 @@
   <div class="workspaceNav">
     <ul class="list">
       <template v-for="(item, index) in itemList" :key="index">
-        <li>
+        <li @click="changeIsActive(index)">
           <router-link
             v-if="item.url != undefined"
             :class="item.styleClass"
@@ -17,31 +17,88 @@
   </div>
 </template>
 <script lang='ts' setup>
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
+import { useStore } from "vuex";
 import Item from "@/base/frame/app/header/ts/Item";
 
+const store = useStore();
+
 const itemList: Array<Item> = reactive([
-  { name: "首页", url: "/home", styleClass: "item" },
-  { name: "日程", url: "/schedule", styleClass: "item" },
-  { name: "|", url: undefined, styleClass: "diver" },
-  { name: "任务", url: "/workspace", styleClass: "item" },
-  { name: "Bug", url: "/", styleClass: "item" },
-  { name: "测试", url: "/workspace", styleClass: "item" },
-  { name: "用需", url: "/workspace", styleClass: "item" },
-  { name: "软需", url: "/", styleClass: "item" },
-  { name: "|", url: undefined, styleClass: "diver" },
-  { name: "迭代", url: "/workspace", styleClass: "item" },
-  { name: "动态", url: "/workspace", styleClass: "item" },
-  { name: "|", url: undefined, styleClass: "diver" },
-  { name: "档案", url: "/workspace", styleClass: "item" },
-  { name: "密码", url: "/workspace", styleClass: "item" },
-  { name: "联系人", url: "/workspace", styleClass: "item" },
+  { name: "首页", url: "/home", styleClass: "item", childrenList: undefined },
+  {
+    name: "日程",
+    url: "/schedule",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  { name: "|", url: undefined, styleClass: "diver", childrenList: undefined },
+  {
+    name: "任务",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  { name: "Bug", url: "/", styleClass: "item", childrenList: undefined },
+  {
+    name: "测试",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  {
+    name: "用需",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  { name: "软需", url: "/", styleClass: "item", childrenList: undefined },
+  { name: "|", url: undefined, styleClass: "diver", childrenList: undefined },
+  {
+    name: "迭代",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  {
+    name: "动态",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  { name: "|", url: undefined, styleClass: "diver", childrenList: undefined },
+  {
+    name: "档案",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  {
+    name: "密码",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
+  {
+    name: "联系人",
+    url: "/workspace",
+    styleClass: "item",
+    childrenList: undefined,
+  },
 ]);
+
+const lastActiveIndex = computed(() => store.state.nav.lastActiveItem);
+const changeIsActive = (index: number) => {
+  if (itemList[index].styleClass === "item") {
+    itemList[lastActiveIndex.value].styleClass = "item";
+    itemList[index].styleClass = "active";
+    store.commit("changeIsActive", index);
+  }
+};
 </script>
 
 <style lang='scss' scoped>
-$height: 45px;
-$line-height: 30px;
+$height: 35px;
+$line-height: 20px;
 
 @mixin item {
   display: block;
@@ -51,13 +108,16 @@ $line-height: 30px;
   line-height: $line-height;
 }
 .workspaceNav {
+  height: 45px;
   .list {
     height: $height;
     line-height: $height;
     display: inline-block;
     list-style: none;
+    margin: 5px auto;
     li {
       float: left;
+
       .item {
         @include item;
       }
@@ -77,6 +137,11 @@ $line-height: 30px;
         cursor: pointer;
         font-weight: 700;
         color: #0c64eb;
+      }
+      .active:hover {
+        cursor: pointer;
+        background: #ececec;
+        border-radius: 4px;
       }
     }
   }

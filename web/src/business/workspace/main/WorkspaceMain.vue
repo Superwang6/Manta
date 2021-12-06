@@ -17,6 +17,7 @@ import FloodHeader from "@/base/frame/app/header/vue/FloodHeader.vue";
     height: 45px;
   }
   .main {
+    padding: 20px 40px;
     background: #efefef;
   }
 }

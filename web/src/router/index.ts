@@ -14,12 +14,12 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: '/home',
             name: 'Home',
-            component: () => import("@/business/workspace/Home.vue")
+            component: () => import("@/business/workspace/main/view/Home.vue")
           },
           {
             path: '/schedule',
             name: 'Schedule',
-            component: () => import("@/business/workspace/Schedule.vue")
+            component: () => import("@/business/workspace/main/view/Schedule.vue")
           }
         ]
       },

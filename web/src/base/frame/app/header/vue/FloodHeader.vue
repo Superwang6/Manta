@@ -9,7 +9,7 @@ import WorkspaceNav from "@/business/workspace/WorkspaceNav.vue"
 <style lang="scss" scoped>
 .flood-header {
   background: #ffffff;
-  height: 45%;
+  height: 50%;
   width: 100%;
   text-align: center;
   margin: 0 auto;
