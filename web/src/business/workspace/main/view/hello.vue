@@ -4,6 +4,7 @@
     :body-style="{ padding: '10px 15px' }"
     shadow="never"
   >
+    <el-icon class="icon" color="#a6aab8" size="20"><more-filled /></el-icon>
     <el-row class="row">
       <el-col :span="6" class="left">
         <h4>{{ name }}, {{ timeUtil.getDusgsum() }}好!</h4>
@@ -58,6 +59,7 @@
 <script lang='ts' setup>
 import { ref } from "vue";
 import timeUtil from "@/base/utils/TimeUtil";
+import { MoreFilled } from "@element-plus/icons";
 
 const name = ref("wang");
 
@@ -80,10 +82,19 @@ $font-size: 14px;
   border-radius: 4px;
   margin-bottom: 20px;
   height: 176px;
-  width: 100%;
+  position: relative;
+  .icon {
+    z-index: 1;
+    padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    right: 5px;
+  }
+  .icon:hover {
+    background: #f1f1f1;
+  }
   .row {
-    width: 100%;
-    height: 100%;
+
     .left {
       width: 100%;
       padding: 0 10px;
